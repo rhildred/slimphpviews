@@ -14,6 +14,9 @@ error_reporting(E_ALL | E_STRICT);
     $app->get('/viewtest', function() use ($app){
         $app->render("richwashere.phtml", array("page" => "richwashere.phtml"));
     });
+    $app->get('/layouttest', function() use ($app){
+        $app->render("layouttest.phtml");
+    });
     $app->get('/', function () {
         echo "Hello World!";
     });
