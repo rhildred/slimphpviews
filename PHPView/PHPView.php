@@ -13,7 +13,7 @@ class PHPView extends \Slim\View{
     protected function layout($template){
         if(!$this->bInLayout){
             $this->bInLayout = TRUE;
-            include($this->getTemplatesDirectory() . '/' . $template);
+            include_once($this->getTemplatesDirectory() . '/' . $template);
             exit;
         }
     }
