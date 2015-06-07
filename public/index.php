@@ -7,7 +7,7 @@ error_reporting(E_ALL | E_STRICT);
 
     $app = new \Slim\Slim(array(
         'view' => new \PHPView\PHPView(),
-        'templates.path' => __DIR__ . "/../views/"));
+        'templates.path' => __DIR__ . "/../views"));
     $app->get('/hello/:name', function ($name) {
         echo "Hello, " . $name;
     });
