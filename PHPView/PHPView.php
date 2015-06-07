@@ -1,5 +1,5 @@
 <?php
-    
+
 namespace PHPView;
 
 class PHPView extends \Slim\View{

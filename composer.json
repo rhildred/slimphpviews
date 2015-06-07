@@ -4,8 +4,7 @@
     },
     "autoload": {
         "psr-0": {
-            "PHPView":        "src/",
-            "PHPView\\Tests": "tests/"
+            "PHPView": ""
         }
     }
 
