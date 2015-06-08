@@ -7,18 +7,23 @@ class PHPView extends \Slim\View{
     protected function render($template, $data = null){
         $this->sPage = $template;
         $Viewbag = $this->data;
-        include($this->getTemplatesDirectory() . '/' . $template);
+        try{
+            include $this->getTemplatesDirectory() . '/' . $template;
+        }catch(\Exception $e){}
     }
     private $bInLayout = FALSE;
     protected function layout($template){
         if(!$this->bInLayout){
             $this->bInLayout = TRUE;
-            include_once($this->getTemplatesDirectory() . '/' . $template);
-            exit;
+            include $this->getTemplatesDirectory() . '/' . $template;
+            throw new \Exception("Don't print twice");
         }
     }
     protected function renderBody(){
-        include($this->getTemplatesDirectory() . '/' . $this->sPage);
+        include $this->getTemplatesDirectory() . '/' . $this->sPage;
+    }
+    protected function urlFor($name){
+        return preg_replace("/index.php(.*)$/", "index.php/" . $name, $_SERVER["PHP_SELF"]);
     }
 }
 
